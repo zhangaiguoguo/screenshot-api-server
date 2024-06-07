@@ -55,6 +55,7 @@ const renderPdf = function (req, res, next) {
                     "uploadTime": Date.now(),
                     "uploadTimeStr": formatDateTime(new Date()),
                     "_id": new ObjectId().buffer.toString("hex"),
+                    "_class":"com.ruoyi.common.domain.SamplingFileMongodb",
                     "reviewPerson": postParam.reviewPerson,
                     "samplingNumber": postParam.samplingNumber,
                 })
