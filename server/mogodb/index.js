@@ -1,7 +1,7 @@
 const MongoClient = require('mongodb').MongoClient;
 
 // Connection URL
-const url = 'mongodb://192.168.0.79:27017'; // 连接 URL 包含用户名和密码
+const url = ''; // 连接 URL 包含用户名和密码
 
 // Database Name
 const dbName = 'lims_demo'; // 你的数据库名称
