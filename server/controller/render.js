@@ -49,15 +49,17 @@ const renderPdf = function (req, res, next) {
 
             try {
                 const re = await getDb('env_SamplingFile')
+                const id = new ObjectId().buffer.toString("hex") + ""
                 const dbResult = await re.insertOne({
                     "name": fileName,
                     "content": Binary.createFromBase64(pdfBase),
                     "uploadTime": Date.now(),
                     "uploadTimeStr": formatDateTime(new Date()),
-                    "_id": new ObjectId().buffer.toString("hex"),
-                    "_class":"com.ruoyi.common.domain.SamplingFileMongodb",
+                    "_id": id,
+                    "_class": "com.ruoyi.common.domain.SamplingFileMongodb",
                     "reviewPerson": postParam.reviewPerson,
                     "samplingNumber": postParam.samplingNumber,
+                    "seq": id
                 })
                 resolve(dbResult)
             } catch (err) {
